@@ -10,7 +10,7 @@ bot = commands.Bot(
     case_insensitive=True,
     strip_after_prefix=True,
 )
-
+bot.owner_ids = []
 
 bot._BotBase__cogs = commands.core._CaseInsensitiveDict()
 
@@ -47,6 +47,12 @@ async def antiping(message):
       error(f"Couldn't mark a message as read.\nMessage Jump URL: {message.jump_url}\nMessage ID: {message.id}")
     else:
       success(f"Marked a message as read.\nMessage Jump URL: {message.jump_url}\nMessage ID: {message.id}")
+
+@bot.check
+async def no_command_response(ctx) -> bool:
+  if ctx.author.id in bot.owner_ids:
+    return True
+  return False
 
 
 
