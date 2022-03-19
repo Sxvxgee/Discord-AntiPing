@@ -38,4 +38,16 @@ async def on_ready():
   print(f"{Fore.CYAN}Github: https://github.com/Sxvxgee{Fore.RESET}")
 
 
+@bot.listen("on_message")
+async def antiping(message):
+  if bot.user.mentioned_in(message):
+    try:
+      await message.ack()
+    except:
+      error(f"Couldn't mark a message as read.\nMessage Jump URL: {message.jump_url}\nMessage ID: {message.id}")
+    else:
+      success(f"Marked a message as read.\nMessage Jump URL: {message.jump_url}\nMessage ID: {message.id}")
+
+
+
 bot.run(TOKEN)
