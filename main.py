@@ -14,4 +14,12 @@ bot = commands.Bot(
 
 bot._BotBase__cogs = commands.core._CaseInsensitiveDict()
 
+
+def error(text):
+  print(f"{Fore.RED}[!] {text}{Fore.RESET}")
+
+def success(text):
+  print(f"{Fore.GREEN}[!] {text}{Fore.RESET}")
+
+
 bot.run(TOKEN)
