@@ -4,13 +4,15 @@ from colorama import Fore, init
 
 init()
 
+PREFIX = '' # The bot commands prefix. Unless you add commands this is useless
+TOKEN = '' # Should be a USER token not a normal bot token
 
 bot = commands.Bot(
     command_prefix = PREFIX,
     case_insensitive=True,
     strip_after_prefix=True,
 )
-bot.owner_ids = []
+bot.owner_ids = [] # Add a user ID of an account that will be allowed to use the bot commands if any were added.
 
 bot._BotBase__cogs = commands.core._CaseInsensitiveDict()
 
