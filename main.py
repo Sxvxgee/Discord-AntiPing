@@ -12,8 +12,7 @@ bot = commands.Bot(
     case_insensitive=True,
     strip_after_prefix=True,
 )
-bot.owner_ids = [] # Add a user ID of an account that will be allowed to use the bot commands if any were added.
-
+bot.help_command = None
 bot._BotBase__cogs = commands.core._CaseInsensitiveDict()
 
 
@@ -50,12 +49,5 @@ async def antiping(message):
     else:
       success(f"Marked a message as read.\nMessage Jump URL: {message.jump_url}\nMessage ID: {message.id}")
 
-@bot.check
-async def no_command_response(ctx) -> bool:
-  if ctx.author.id in bot.owner_ids:
-    return True
-  return False
 
-
-
-bot.run(TOKEN)
+bot.run(TOKEN, self_bot = True)
