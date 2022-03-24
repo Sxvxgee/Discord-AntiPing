@@ -11,6 +11,7 @@ bot = commands.Bot(
     command_prefix = PREFIX,
     case_insensitive=True,
     strip_after_prefix=True,
+    self_bot = True,
 )
 bot.help_command = None
 bot._BotBase__cogs = commands.core._CaseInsensitiveDict()
@@ -50,4 +51,4 @@ async def antiping(message):
       success(f"Marked a message as read.\nMessage Jump URL: {message.jump_url}\nMessage ID: {message.id}")
 
 
-bot.run(TOKEN, self_bot = True)
+bot.run(TOKEN)
