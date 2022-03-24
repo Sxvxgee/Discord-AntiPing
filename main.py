@@ -44,7 +44,7 @@ async def on_ready():
 async def antiping(message):
   if bot.user.mentioned_in(message):
     try:
-      await message.ack()
+      await message.channel.ack()
     except:
       error(f"Couldn't mark a message as read.\nMessage Jump URL: {message.jump_url}\nMessage ID: {message.id}")
     else:
